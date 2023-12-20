@@ -1,30 +1,21 @@
-# import requests
-# 
-# url = "https://raw.githubusercontent.com/MoisesJPG/genshin-inline-assistant/main/database.json"
-# 
-# try:
-#     response = requests.get(url)
-#     response.raise_for_status()  # Verificar si la solicitud fue exitosa
-# 
-#     # Obtener el contenido JSON
-#     json_content = response.json()
-# 
-#     # Solicitar entrada de usuario para buscar información específica
-#     search_key = input("Ingresa la clave para buscar en el JSON: ")
-# 
-#     # Verificar si la clave está presente en el JSON
-#     if search_key in json_content:
-#         # Mostrar el valor correspondiente a la clave ingresada
-#         print(f"Valor para '{search_key}': {json_content[search_key]}")
-#     else:
-#         print(f"La clave '{search_key}' no se encontró en el JSON.")
-# 
-# except requests.exceptions.RequestException as e:
-#     print(f"Error al obtener el contenido JSON: {e}")
-# except ValueError as ve:
-#     print(f"Error al decodificar JSON: {ve}")
+import requests
 
-screen = "main"
+# Obtener el contenido JSON
+url = "https://raw.githubusercontent.com/MoisesJPG/genshin-inline-assistant/main/database.json"
+
+try:
+    response = requests.get(url)
+    # Verificar si la solicitud fue exitosa
+    response.raise_for_status()
+    # Guarda los datos en la variable mainDatabase
+    mainDatabase = response.json()
+
+except requests.exceptions.RequestException as e:
+    print(f"Error al obtener el contenido JSON: {e}")
+except ValueError as ve:
+    print(f"Error al decodificar JSON: {ve}")
+
+screen = "builds"
 def obtener_entrada():
     if screen == "main":
         return input("/")
@@ -53,6 +44,7 @@ while True:
         if entrada_usuario.lower().split(" ")[0] == 'character':
             if entrada_usuario.lower().split(" ")[1] == 'amber':
                 print("Mostrando builds de 'Amber':")
+                print(mainDatabase["character"])
             else:
                 print("El personajee '"+entrada_usuario.split(" ")[1]+"' no existe")
 
