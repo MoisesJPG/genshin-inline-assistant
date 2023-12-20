@@ -1,7 +1,37 @@
 {
     "character": [
         {
-            "name":"Amber"
+            "name":"Amber",
+            "builds":{
+                "weapons": [
+                    "Bow",
+                    "Bow",
+                    "Bow"
+                ],
+                "artifacts": [
+                    [
+                        ""
+                    ],[
+                        "",
+                        ""
+                    ]
+                ],
+                "stats": [{
+                    "main": [ 
+                        "HP", 
+                        "ATQ", 
+                        "", 
+                        "", 
+                        ""
+                    ],
+                    "sub": [ 
+                        "HP%", 
+                        "ATQ", 
+                        "ATQ%", 
+                        "Prob Crit."
+                    ]
+                }]
+            }
         }
     ]
 }
